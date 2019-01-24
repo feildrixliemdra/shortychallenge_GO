@@ -67,7 +67,6 @@ func startApp() {
 		rollbar.Error(err)
 
 	} else {
-		
 
 		greenOutput := color.New(color.FgGreen)
 		successOutput := greenOutput.Add(color.Bold)
