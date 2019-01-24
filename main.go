@@ -11,6 +11,7 @@ import (
 	"github.com/joho/godotenv"
 	"github.com/rollbar/rollbar-go"
 	"go.uber.org/zap"
+	"github.com/fatih/color"
 	"log"
 	"net/url"
 	"os"
@@ -52,11 +53,29 @@ func startApp() {
 		url.QueryEscape(defaultTimezone),
 	)
 
-	fmt.Println(connection)
-
 	db, err := gorm.Open("mysql", connection)
 	if nil != err {
-		panic(err)
+		
+		redOutput := color.New(color.FgRed)
+		errorOutput := redOutput.Add(color.Bold)
+		
+		errorOutput.Println("")
+		errorOutput.Println("!!! Warning")
+		errorOutput.Println(fmt.Sprintf("Failed connected to database %s", connection))
+		errorOutput.Println("")
+
+		rollbar.Error(err)
+
+	} else {
+
+		greenOutput := color.New(color.FgGreen)
+		successOutput := greenOutput.Add(color.Bold)
+		
+		successOutput.Println("")
+		successOutput.Println("!!! Info")
+		successOutput.Println(fmt.Sprintf("Successfully connected to database %s", connection))
+		successOutput.Println("")
+
 	}
 
 	zapLog, _ := zap.NewProduction()
