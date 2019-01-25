@@ -37,6 +37,7 @@ func startApp() {
 	router.Use(defaultMiddleware.CORSMiddleware())
 
 	controllers.V1UserControllerHandler(router)
+	controllers.V1AuthenticationControllerHandler(router)
 	controllers.V2UserControllerHandler(router)
 
 	serverHost := os.Getenv("SERVER_ADDRESS")

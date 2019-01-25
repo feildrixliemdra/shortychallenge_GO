@@ -101,6 +101,11 @@ go test services -v -cover
 go test controllers -v -cover
 ``` 
 
+atau dapat menggunakan command dibawah ini untuk menjalankan test pada semua layer:
+```php
+go test ./... -v -cover
+```
+
 ### Code Versioning
 versioning level dilakukan pada layer 
 - `controllers` 
