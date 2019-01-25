@@ -6,7 +6,6 @@ import (
 	"../objects"
 	"../services"
 	"github.com/gin-gonic/gin"
-	"github.com/jinzhu/gorm"
 	"net/http"
 	"strconv"
 )
@@ -16,10 +15,10 @@ type V1UserController struct {
 	errorHelper helpers.ErrorHelper
 }
 
-func V1UserControllerHandler(router *gin.Engine, db *gorm.DB) {
+func V1UserControllerHandler(router *gin.Engine) {
 
 	handler := &V1UserController{
-		userService: services.V1UserServiceHandler(db),
+		userService: services.V1UserServiceHandler(),
 		errorHelper: helpers.ErrorHelperHandler(),
 	}
 

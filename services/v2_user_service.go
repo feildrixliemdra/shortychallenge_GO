@@ -4,7 +4,6 @@ import (
 	"../objects"
 	"../repositories"
 	"github.com/jinzhu/copier"
-	"github.com/jinzhu/gorm"
 )
 
 type V2UserService struct {
@@ -12,9 +11,9 @@ type V2UserService struct {
 	userRepository repositories.V2UserRepository
 }
 
-func V2UserServiceHandler(db *gorm.DB) (V2UserService) {
+func V2UserServiceHandler() (V2UserService) {
 	service := V2UserService{
-		userRepository: repositories.V2UserRepositoryHandler(db),
+		userRepository: repositories.V2UserRepositoryHandler(),
 	}
 	return service
 }
