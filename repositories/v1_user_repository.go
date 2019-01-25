@@ -2,6 +2,7 @@ package repositories
 
 import (
 	"../models"
+	"../database"
 	"github.com/jinzhu/copier"
 	"github.com/jinzhu/gorm"
 )
@@ -10,8 +11,8 @@ type V1UserRepository struct {
 	DB gorm.DB
 }
 
-func V1UserRepositoryHandler(db *gorm.DB) (V1UserRepository) {
-	repository := V1UserRepository{DB: *db}
+func V1UserRepositoryHandler() (V1UserRepository) {
+	repository := V1UserRepository{DB: *database.GetConnection()}
 	return repository
 }
 

@@ -2,7 +2,6 @@ package main
 
 import (
 	"./controllers"
-	"./database"
 	"./middleware"
 	"fmt"
 	"github.com/gin-gonic/gin"
@@ -32,17 +31,13 @@ func main() {
 
 func startApp() {
 
-	db := database.GetConnection()
-
-	defaultMiddleware := middleware.DefaultMiddleware{
-		DB: db,
-	}
+	defaultMiddleware := middleware.DefaultMiddleware{}
 
 	router := gin.Default()
 	router.Use(defaultMiddleware.CORSMiddleware())
 
-	controllers.V1UserControllerHandler(router, db)
-	controllers.V2UserControllerHandler(router, db)
+	controllers.V1UserControllerHandler(router)
+	controllers.V2UserControllerHandler(router)
 
 	serverHost := os.Getenv("SERVER_ADDRESS")
 	serverPort := os.Getenv("SERVER_PORT")
