@@ -2,6 +2,7 @@ package main
 
 import (
 	"./controllers"
+	"./database"
 	"./middleware"
 	"fmt"
 	"github.com/gin-gonic/gin"
@@ -45,6 +46,9 @@ func startApp() {
 
 	serverString := fmt.Sprintf("%s:%s", serverHost, serverPort)
 	fmt.Println(serverString)
+
+	// run database migration
+	database.Migrate()
 
 	router.Run(serverString)
 

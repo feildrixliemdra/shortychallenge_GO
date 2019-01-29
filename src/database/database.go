@@ -62,8 +62,6 @@ func Initialize() (*gorm.DB, error) {
 		successOutput.Println(fmt.Sprintf("Successfully connected to database %s", connectionString))
 		successOutput.Println("")
 
-		Migrate(connection)
-
 	}
 
 	zapLog, _ := zap.NewProduction()

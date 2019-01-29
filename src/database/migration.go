@@ -1,9 +1,12 @@
 package database
 
 import (
-	"github.com/jinzhu/gorm"
+	"../models"
 )
 
-func Migrate(db *gorm.DB) {
-	db.AutoMigrate()
+func Migrate() {
+
+	db := GetConnection()
+	db.AutoMigrate(&models.User{})
+
 }
