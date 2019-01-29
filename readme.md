@@ -148,10 +148,3 @@ terdapat contoh kasus pada saat update data user parameter dan response yang dit
 pada kedua file tersebut terdapat object response dan object request, setelah melakaukan devinisi DTO, developer kemudiam melakukan definisi repository pada layer `repository` yang menggunakan DTO pada masing-masing versi.
 
 setelah melakukan definisi pada `repository`, kemudian dilakukan definisi pada layer `service` dan `controller`, perhatikan routing group pada masing masing controller harus sesuai dengan versi yang didefinisikan.    
-
-### Database Migration
-untuk menjalankan database migration, developer dapat menjalankan command dibawah ini:
-```
-go run database_migration.go
-``` 
-database migration akan melakukan sinkronisasi skema dan indeks database berdasarkan skema yang dibuat pada directory models dan perintah yang ada di `database_migration.go`
