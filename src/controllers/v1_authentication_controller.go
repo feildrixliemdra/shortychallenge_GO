@@ -1,11 +1,11 @@
 package controllers
 
 import (
+	"../constants"
 	"../helpers"
 	"../objects"
 	"../services"
 	"github.com/gin-gonic/gin"
-	"github.com/ralali/agent_api/constants"
 	"net/http"
 )
 
