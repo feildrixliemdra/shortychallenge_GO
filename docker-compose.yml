@@ -1,0 +1,47 @@
+version: '3.3'
+services:
+  rll_go_boilerplate_golang_service:
+    build:
+      context: ./config
+      dockerfile: golang-service
+    container_name: rll_go_boilerplate_golang_service
+    ports:
+    - '3000:3000'
+    volumes:
+    - './src:/my_app:rw'
+    - './storage/go/src:/go/src'
+    - './config:/config:rw'
+    networks:
+      rll_go_boilerplate_network:
+        ipv4_address: 172.16.235.10
+    working_dir: "/my_app"
+    command: ["sh", "-c", "go get -v -d && refresh init && refresh run"]
+  rll_go_boilerplate_mysql_service:
+    build:
+      context: ./config
+      dockerfile: mysql-service
+    container_name: rll_go_boilerplate_mysql_service
+    environment:
+      MYSQL_DATABASE: "rll_go_boilerplate_database"
+      MYSQL_USER: "rll_go_boilerplate_username"
+      MYSQL_PASSWORD: "rll_go_boilerplate_password"
+      MYSQL_ROOT_PASSWORD: "rll_go_boilerplate_password"
+    ports:
+    - '3309:3306'
+    volumes:
+    - './storage/mysql:/var/lib/mysql'
+    - './storage/go/src:/go/src'
+    - './src:/my_app:rw'
+    - './config:/config:rw'
+    networks:
+      rll_go_boilerplate_network:
+        ipv4_address: 172.16.235.11
+networks:
+  rll_go_boilerplate_network:
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: 'false'
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.16.235.0/24

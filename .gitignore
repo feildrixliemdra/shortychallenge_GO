@@ -3,3 +3,4 @@ storage/logs
 .idea
 swagger.json
 vendor
+storage
