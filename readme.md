@@ -1,4 +1,5 @@
 
+
 # Ralali Golang Microservice Boilerplate
 
 ### Pendahuluan
@@ -18,7 +19,7 @@ Dengan adanya kebutuhan untuk memecah Arsitektur Ralali yang Monolitik menjadi m
 - https://github.com/joho/godotenv
 
 ### Architecture Structure
-![architecture diagram](storage/golang%20architecture%20diagram.png)
+![architecture diagram](src/storage/golang%20architecture%20diagram.png)
 ```
 - rl-ms-boilerplate-go
  |- constants
@@ -74,36 +75,59 @@ Storage bertugas untuk menyimpan file-file seperti log error atau temporary file
 
 ## How to Setup
 
-Clone repository ini diluar direktori `$GOPATH`, copy .env.example dan buat satu file dengan nama .env, sesuaikan konfigurasi environment anda pada file .env 
+Clone repository ini diluar direktori `$GOPATH`, copy `.env.example` didalam directory `src` dan buat satu file dengan nama `.env`, sesuaikan konfigurasi environment anda pada file `.env`, by default `.env` sudah disetting untuk dapat konek ke docker mysql yang sudah disiapkan, jadi mending tidak usah mengubah apa apa disini.
 
 #### Setup Local
 - masuk kedalam directory repository
-- jalankan `go get -v -d`
-- jalankan `go run main.go`
+- jalankan `docker-compose up --build`
+- tunggu sampai terminal menampilkan tampilan seperti dibawah ini:
 
-#### Setup Local Menggunakan Refresh
-- masuk kedalam directory repository
-- jalankan `go get -v -d`
-- jalankan `go run main.go`
-- jalankan `go get github.com/markbates/refresh`
-- jalankan `refresh init && refresh run`
+``` bash
+rll_go_boilerplate_golang_service  | refresh: 2019/01/29 05:40:41 === Rebuild on: :start: ===
 
-#### Setup Using Dockerfile
-- masuk kedalam directory repository
-- build docker dengan menggunakan command `docker build -t my-golang-app .`
-- jalankan `go run my-golang-app`
+rll_go_boilerplate_golang_service  | refresh: 2019/01/29 05:40:41 === Running: go build -v -i -o /tmp/refresh-build  (PID: 27) ===
+
+rll_go_boilerplate_golang_service  | refresh: 2019/01/29 05:40:43 === Building Completed (PID: 27) (Time: 1.697046352s) ===
+
+rll_go_boilerplate_golang_service  | refresh: 2019/01/29 05:40:43 === Running: /tmp/refresh-build (PID: 61) ===
+
+rll_go_boilerplate_golang_service  | [GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+rll_go_boilerplate_golang_service  |
+
+rll_go_boilerplate_golang_service  | [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+
+rll_go_boilerplate_golang_service  | - using env:  export GIN_MODE=release
+
+rll_go_boilerplate_golang_service  | - using code:  gin.SetMode(gin.ReleaseMode)
+
+rll_go_boilerplate_golang_service  |
+
+rll_go_boilerplate_golang_service  |
+
+rll_go_boilerplate_golang_service  | !!! Info
+
+rll_go_boilerplate_golang_service  | Successfully connected to database rll_go_boilerplate_username:rll_go_boilerplate_password@tcp(172.16.235.1:3309)/rll_go_boilerplate_database?parseTime=1&loc=Asia%2FJakarta
+
+rll_go_boilerplate_golang_service  |
+
+rll_go_boilerplate_golang_service  | [GIN-debug] GET  /v1/users/:id --> _/my_app/controllers.(*V1UserController).GetById-fm (4 handlers)
+
+rll_go_boilerplate_golang_service  | [GIN-debug] POST /v1/users/:id --> _/my_app/controllers.(*V1UserController).UpdateById-fm (4 handlers)
+
+rll_go_boilerplate_golang_service  | [GIN-debug] POST /v1/authentication/generate --> _/my_app/controllers.(*V1AuthenticationController).Generate-fm (4 handlers)
+
+rll_go_boilerplate_golang_service  | [GIN-debug] POST /v2/users/:id --> _/my_app/controllers.(*V2UserController).UpdateById-fm (4 handlers)
+
+rll_go_boilerplate_golang_service  | 0.0.0.0:3000
+
+rll_go_boilerplate_golang_service  | [GIN-debug] Listening and serving HTTP on 0.0.0.0:3000
+```
 
 ### Unit Testing
 untuk menjalankan unit testing, developer dapat menjalankan command dibawah ini:
 ```
-go test repositories -v -cover
-go test services -v -cover
-go test controllers -v -cover
-``` 
-
-atau dapat menggunakan command dibawah ini untuk menjalankan test pada semua layer:
-```php
-go test ./... -v -cover
+docker exec -w /my_app rll_go_boilerplate_golang_service go test ./... -v -cover
 ```
 
 ### Code Versioning
