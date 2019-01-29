@@ -19,7 +19,7 @@ Dengan adanya kebutuhan untuk memecah Arsitektur Ralali yang Monolitik menjadi m
 - https://github.com/joho/godotenv
 
 ### Architecture Structure
-![architecture diagram](src/storage/golang%20architecture%20diagram.png)
+![architecture diagram](golang%20architecture%20diagram.png)
 ```
 - rl-ms-boilerplate-go
  |- constants
