@@ -71,7 +71,6 @@ Storage bertugas untuk menyimpan file-file seperti log error atau temporary file
 
 ## TODO
 - Endpoint documentation
-- Authorization middleware
 
 ## How to Setup
 
@@ -83,45 +82,26 @@ Clone repository ini diluar direktori `$GOPATH`, copy `.env.example` didalam dir
 - tunggu sampai terminal menampilkan tampilan seperti dibawah ini:
 
 ``` bash
-rll_go_boilerplate_golang_service  | refresh: 2019/01/29 05:40:41 === Rebuild on: :start: ===
-
-rll_go_boilerplate_golang_service  | refresh: 2019/01/29 05:40:41 === Running: go build -v -i -o /tmp/refresh-build  (PID: 27) ===
-
-rll_go_boilerplate_golang_service  | refresh: 2019/01/29 05:40:43 === Building Completed (PID: 27) (Time: 1.697046352s) ===
-
-rll_go_boilerplate_golang_service  | refresh: 2019/01/29 05:40:43 === Running: /tmp/refresh-build (PID: 61) ===
-
-rll_go_boilerplate_golang_service  | [GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
-
-rll_go_boilerplate_golang_service  |
-
-rll_go_boilerplate_golang_service  | [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
-
-rll_go_boilerplate_golang_service  | - using env:  export GIN_MODE=release
-
-rll_go_boilerplate_golang_service  | - using code:  gin.SetMode(gin.ReleaseMode)
-
-rll_go_boilerplate_golang_service  |
-
-rll_go_boilerplate_golang_service  |
-
-rll_go_boilerplate_golang_service  | !!! Info
-
-rll_go_boilerplate_golang_service  | Successfully connected to database rll_go_boilerplate_username:rll_go_boilerplate_password@tcp(172.16.235.1:3309)/rll_go_boilerplate_database?parseTime=1&loc=Asia%2FJakarta
-
-rll_go_boilerplate_golang_service  |
-
-rll_go_boilerplate_golang_service  | [GIN-debug] GET  /v1/users/:id --> _/my_app/controllers.(*V1UserController).GetById-fm (4 handlers)
-
-rll_go_boilerplate_golang_service  | [GIN-debug] POST /v1/users/:id --> _/my_app/controllers.(*V1UserController).UpdateById-fm (4 handlers)
-
-rll_go_boilerplate_golang_service  | [GIN-debug] POST /v1/authentication/generate --> _/my_app/controllers.(*V1AuthenticationController).Generate-fm (4 handlers)
-
-rll_go_boilerplate_golang_service  | [GIN-debug] POST /v2/users/:id --> _/my_app/controllers.(*V2UserController).UpdateById-fm (4 handlers)
-
-rll_go_boilerplate_golang_service  | 0.0.0.0:3000
-
-rll_go_boilerplate_golang_service  | [GIN-debug] Listening and serving HTTP on 0.0.0.0:3000
+golang_service  | refresh: 2019/01/29 05:40:41 === Rebuild on: :start: ===
+golang_service  | refresh: 2019/01/29 05:40:41 === Running: go build -v -i -o /tmp/refresh-build  (PID: 27) ===
+golang_service  | refresh: 2019/01/29 05:40:43 === Building Completed (PID: 27) (Time: 1.697046352s) ===
+golang_service  | refresh: 2019/01/29 05:40:43 === Running: /tmp/refresh-build (PID: 61) ===
+golang_service  | [GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+golang_service  |
+golang_service  | [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+golang_service  | - using env:  export GIN_MODE=release
+golang_service  | - using code:  gin.SetMode(gin.ReleaseMode)
+golang_service  |
+golang_service  |
+golang_service  | !!! Info
+golang_service  | Successfully connected to database username:password@tcp(172.16.235.1:3309)/database?parseTime=1&loc=Asia%2FJakarta
+golang_service  |
+golang_service  | [GIN-debug] GET  /v1/users/:id --> _/my_app/controllers.(*V1UserController).GetById-fm (4 handlers)
+golang_service  | [GIN-debug] POST /v1/users/:id --> _/my_app/controllers.(*V1UserController).UpdateById-fm (4 handlers)
+golang_service  | [GIN-debug] POST /v1/authentication/generate --> _/my_app/controllers.(*V1AuthenticationController).Generate-fm (4 handlers)
+golang_service  | [GIN-debug] POST /v2/users/:id --> _/my_app/controllers.(*V2UserController).UpdateById-fm (4 handlers)
+golang_service  | 0.0.0.0:3000
+golang_service  | [GIN-debug] Listening and serving HTTP on 0.0.0.0:3000
 ```
 
 ### Unit Testing
