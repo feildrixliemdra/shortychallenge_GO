@@ -22,13 +22,14 @@ func V1AuthenticationControllerHandler(router *gin.Engine) {
 		service:     services.V1AuthenticationServiceHandler(),
 	}
 
+	group := router.Group("v1/authentication")
+	group.POST("generate", handler.Generate)
+
 	defaultMiddleware := middleware.DefaultMiddleware{}
 
-	group := router.Group("v1/authentication")
-	{
-		group.GET("profile", handler.GetProfile).Use(defaultMiddleware.AuthenticationMiddleware())
-		group.POST("generate", handler.Generate)
-	}
+	groupAuthenticated := router.Group("v1/authentication")
+	groupAuthenticated.Use(defaultMiddleware.AuthenticationMiddleware())
+	groupAuthenticated.GET("profile", handler.GetProfile)
 
 }
 
@@ -52,6 +53,7 @@ func (handler *V1AuthenticationController) Generate(context *gin.Context) {
 	result, err := handler.service.Generate(requestObject)
 	if nil != err {
 		handler.errorHelper.HTTPResponseError(context, err, constants.InternalServerError)
+		return
 	}
 
 	context.JSON(http.StatusOK, result)
