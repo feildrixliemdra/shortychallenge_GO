@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"github.com/pkg/errors"
 	"net/http"
 	"os"
 )
@@ -36,6 +37,10 @@ func (service *V1AuthenticationService) Generate(requestObject objects.V1Authent
 	resp, err := http.Post(url, "application/json", bytes.NewBuffer(bytesRepresentation))
 	if err != nil {
 		return objects.V1AuthenticationObjectResponse{}, err
+	}
+
+	if resp.StatusCode != 200 {
+		return objects.V1AuthenticationObjectResponse{}, errors.New("Invalid authorization!")
 	}
 
 	var result map[string]interface{}
