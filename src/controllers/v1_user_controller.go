@@ -3,6 +3,7 @@ package controllers
 import (
 	"../constants"
 	"../helpers"
+	"../middleware"
 	"../objects"
 	"../services"
 	"github.com/gin-gonic/gin"
@@ -22,7 +23,10 @@ func V1UserControllerHandler(router *gin.Engine) {
 		errorHelper: helpers.ErrorHelperHandler(),
 	}
 
+	defaultMiddleware := middleware.DefaultMiddleware{}
+
 	group := router.Group("v1/users")
+	group.Use(defaultMiddleware.AuthenticationMiddleware())
 	{
 		group.GET(":id", handler.GetById)
 		group.POST(":id", handler.UpdateById)

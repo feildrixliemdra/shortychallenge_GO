@@ -9,7 +9,7 @@ services:
     - '3000:3000'
     volumes:
     - './src:/my_app:rw'
-    - './storage/go:/go'
+    - './storage/go/src:/go/src'
     - './config:/config:rw'
     networks:
       rll_go_boilerplate_network:
@@ -30,7 +30,7 @@ services:
     - '3309:3306'
     volumes:
     - './storage/mysql:/var/lib/mysql'
-    - './storage/go:/go'
+    - './storage/go/src:/go/src'
     - './src:/my_app:rw'
     - './config:/config:rw'
     networks:

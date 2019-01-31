@@ -28,6 +28,7 @@ func main() {
 	} else {
 		startApp()
 	}
+
 }
 
 func startApp() {
