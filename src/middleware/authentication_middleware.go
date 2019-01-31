@@ -38,8 +38,6 @@ func (m *DefaultMiddleware) AuthenticationMiddleware() gin.HandlerFunc {
 
 		res, _ := http.DefaultClient.Do(req)
 
-		fmt.Println(res.StatusCode)
-
 		if res.StatusCode == 200 {
 
 			defer res.Body.Close()
@@ -48,7 +46,7 @@ func (m *DefaultMiddleware) AuthenticationMiddleware() gin.HandlerFunc {
 			var result map[string]interface{}
 			json.Unmarshal([]byte(string(body)), &result)
 
-			fmt.Println(result["email"])
+			c.Set("user", result)
 
 		} else {
 

@@ -15,22 +15,27 @@ const (
 )
 
 var errorConstantMapping = map[int]ErrorConstant{
+
 	RequestParameterInvalid: {
 		HttpCode: http.StatusBadRequest,
 		Message:  "Invalid request parameter",
 	},
+
 	ObjectNotInitializedProperly: {
 		HttpCode: http.StatusInternalServerError,
 		Message:  "Object is not initialized properly",
 	},
+
 	InternalServerError: {
 		HttpCode: http.StatusInternalServerError,
 		Message:  "Something went wrong",
 	},
+
 	ResourceNotFound: {
 		HttpCode: http.StatusInternalServerError,
 		Message:  "Resource not found",
 	},
+
 }
 
 func GetErrorConstant(code int) ErrorConstant {

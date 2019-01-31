@@ -100,6 +100,7 @@ golang_service  | [GIN-debug] GET  /v1/users/:id --> _/my_app/controllers.(*V1Us
 golang_service  | [GIN-debug] POST /v1/users/:id --> _/my_app/controllers.(*V1UserController).UpdateById-fm (4 handlers)
 golang_service  | [GIN-debug] POST /v1/authentication/generate --> _/my_app/controllers.(*V1AuthenticationController).Generate-fm (4 handlers)
 golang_service  | [GIN-debug] POST /v2/users/:id --> _/my_app/controllers.(*V2UserController).UpdateById-fm (4 handlers)
+golang_service  | 
 golang_service  | 0.0.0.0:3000
 golang_service  | [GIN-debug] Listening and serving HTTP on 0.0.0.0:3000
 ```
