@@ -25,9 +25,8 @@ func V1AuthenticationControllerHandler(router *gin.Engine) {
 	defaultMiddleware := middleware.DefaultMiddleware{}
 
 	group := router.Group("v1/authentication")
-	group.Use(defaultMiddleware.AuthenticationMiddleware())
 	{
-		group.GET("profile", handler.GetProfile)
+		group.GET("profile", handler.GetProfile).Use(defaultMiddleware.AuthenticationMiddleware())
 		group.POST("generate", handler.Generate)
 	}
 
