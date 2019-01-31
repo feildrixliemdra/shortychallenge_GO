@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"io/ioutil"
@@ -37,10 +38,23 @@ func (m *DefaultMiddleware) AuthenticationMiddleware() gin.HandlerFunc {
 
 		res, _ := http.DefaultClient.Do(req)
 
-		defer res.Body.Close()
-		body, _ := ioutil.ReadAll(res.Body)
+		if res.StatusCode == 200 {
 
-		fmt.Println(string(body))
+			defer res.Body.Close()
+			body, _ := ioutil.ReadAll(res.Body)
+
+			var result map[string]interface{}
+			json.Unmarshal([]byte(string(body)), &result)
+
+			fmt.Println(string(body))
+			fmt.Println(result["email"])
+
+		} else {
+
+			c.AbortWithStatus(http.StatusUnauthorized)
+			return
+
+		}
 
 	}
 
