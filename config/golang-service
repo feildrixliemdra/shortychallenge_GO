@@ -4,7 +4,10 @@ RUN apk update && \
     apk upgrade && \
     apk add bash git && \
     apk add gcc && \
-    apk add musl-dev
+    apk add musl-dev && \
+    apk add curl
 
 
 RUN go get github.com/markbates/refresh
+
+RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
