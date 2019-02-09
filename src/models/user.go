@@ -1,12 +1,17 @@
 package models
 
-import "github.com/jinzhu/gorm"
+import (
+	"time"
+)
 
 type User struct {
-	gorm.Model
+	ID           uint       `gorm:"primary_key"`
 	Name         string     `gorm:"column:name" json:"name"`
 	Email        string     `gorm:"column:email" json:"email"`
 	ImageProfile string     `gorm:"column:image_profile" json:"image_profile"`
+	CreatedAt    *time.Time `sql:"index"`
+	UpdatedAt    *time.Time `sql:"index"`
+	DeletedAt    *time.Time `sql:"index"`
 }
 
 func (User) TableName() string {

@@ -64,7 +64,6 @@ func startApp() {
 
 }
 
-
 func command() string {
 	args := os.Args[1:]
 

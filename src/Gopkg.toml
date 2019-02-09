@@ -5,7 +5,9 @@ required = [
   "github.com/joho/godotenv",
   "github.com/pkg/errors",
   "github.com/rollbar/rollbar-go",
-  "go.uber.org/zap"
+  "go.uber.org/zap",
+  "github.com/jinzhu/gorm",
+  "github.com/jinzhu/inflection"
 ]
 
 [[constraint]]

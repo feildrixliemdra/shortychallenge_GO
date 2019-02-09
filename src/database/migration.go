@@ -5,8 +5,6 @@ import (
 )
 
 func Migrate() {
-
 	db := GetConnection()
 	db.AutoMigrate(&models.User{})
-
 }

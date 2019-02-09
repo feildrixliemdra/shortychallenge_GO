@@ -67,6 +67,7 @@ func Initialize() (*gorm.DB, error) {
 	zapLog, _ := zap.NewProduction()
 	connection.SetLogger(customLogger(zapLog))
 
+	fmt.Println("Connection is created")
 	return connection, nil
 
 }
