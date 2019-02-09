@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+rm -rf .vendor-new
 rm -rf /go/src/github.com/ralali
 
 mkdir vendor
