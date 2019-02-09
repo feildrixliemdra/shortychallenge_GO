@@ -5,7 +5,7 @@
   digest = "1:865079840386857c809b72ce300be7580cb50d3d3129ce11bf9aa6ca2bc1934a"
   name = "github.com/fatih/color"
   packages = ["."]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "5b77d2a35fb0ede96d138fc9a99f5c9b6aef11b4"
   version = "v1.7.0"
 
@@ -14,11 +14,11 @@
   digest = "1:38f00d85208f9f51e51063b0b90687d72f3ad61a7b6135d3ab6cb21e7b68dff2"
   name = "github.com/gin-contrib/sse"
   packages = ["."]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "a7658810eb745c2f22927282dea478278103a897"
 
 [[projects]]
-  digest = "1:d5083934eb25e45d17f72ffa86cae3814f4a9d6c073c4f16b64147169b245606"
+  digest = "1:a46c0549dc5facece0e543f3eeb9986f49d62920b385b84f54df7578915b939d"
   name = "github.com/gin-gonic/gin"
   packages = [
     ".",
@@ -26,23 +26,23 @@
     "json",
     "render",
   ]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "b869fe1415e4b9eb52f247441830d502aece2d4d"
   version = "v1.3.0"
 
 [[projects]]
-  digest = "1:ec6f9bf5e274c833c911923c9193867f3f18788c461f76f05f62bb1510e0ae65"
+  digest = "1:92d9d8d25bbab74ef8a3c546c121e24542ac984ccdc4f99678e06042a45e71f8"
   name = "github.com/go-sql-driver/mysql"
   packages = ["."]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "72cd26f257d44c1114970e19afddcd812016007e"
   version = "v1.4.1"
 
 [[projects]]
-  digest = "1:97df918963298c287643883209a2c3f642e6593379f97ab400c2a2e219ab647d"
+  digest = "1:a2ecb56e5053d942aafc86738915fb94c9131bac848c543b8b6764365fd69080"
   name = "github.com/golang/protobuf"
   packages = ["proto"]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "aa810b61a9c79d51363740d207bb46cf8e620ed5"
   version = "v1.2.0"
 
@@ -51,14 +51,14 @@
   digest = "1:5c3444689562053b027ef3b96372e306adbe0d7d109b6cdd48d01eb80f8bab14"
   name = "github.com/jinzhu/copier"
   packages = ["."]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "7e38e58719c33e0d44d585c4ab477a30f8cb82dd"
 
 [[projects]]
-  digest = "1:d4e6e8584d0a94ce567d237e19192dae44d57d2767ac7e1d7fbf5626d176381a"
+  digest = "1:56889f4ced0f576272d91c67a63d90f32ae169aa069d75d3f55a40701a965593"
   name = "github.com/jinzhu/gorm"
   packages = ["."]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "472c70caa40267cb89fd8facb07fe6454b578626"
   version = "v1.9.2"
 
@@ -67,30 +67,30 @@
   digest = "1:fd97437fbb6b7dce04132cf06775bd258cce305c44add58eb55ca86c6c325160"
   name = "github.com/jinzhu/inflection"
   packages = ["."]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "04140366298a54a039076d798123ffa108fff46c"
 
 [[projects]]
-  digest = "1:ecd9aa82687cf31d1585d4ac61d0ba180e42e8a6182b85bd785fcca8dfeefc1b"
+  digest = "1:ee5840274624ad20cac08227aeca582fbdaf3727ef9dd37ae935706240679e09"
   name = "github.com/joho/godotenv"
   packages = ["."]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "23d116af351c84513e1946b527c88823e476be13"
   version = "v1.3.0"
 
 [[projects]]
-  digest = "1:3e551bbb3a7c0ab2a2bf4660e7fcad16db089fdcfbb44b0199e62838038623ea"
+  digest = "1:5d713dbcad44f3358fec51fd5573d4f733c02cac5a40dcb177787ad5ffe9272f"
   name = "github.com/json-iterator/go"
   packages = ["."]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "1624edc4454b8682399def8740d46db5e4362ba4"
   version = "v1.1.5"
 
 [[projects]]
-  digest = "1:c658e84ad3916da105a761660dcaeb01e63416c8ec7bc62256a9b411a05fcd67"
+  digest = "1:b168836ecd85a2d138391dbc464d2442ea9400c29cc0636f2c6056b996692e29"
   name = "github.com/mattn/go-colorable"
   packages = ["."]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "167de6bfdfba052fa6b2d3664c8f5272e23c9072"
   version = "v0.0.9"
 
@@ -98,7 +98,7 @@
   digest = "1:0981502f9816113c9c8c4ac301583841855c8cf4da8c72f696b3ebedf6d0e4e5"
   name = "github.com/mattn/go-isatty"
   packages = ["."]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c"
   version = "v0.0.4"
 
@@ -106,7 +106,7 @@
   digest = "1:33422d238f147d247752996a26574ac48dcf472976eda7f5134015f06bf16563"
   name = "github.com/modern-go/concurrent"
   packages = ["."]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "bacd9c7ef1dd9b15be4a9909b8ac7a4e313eec94"
   version = "1.0.3"
 
@@ -114,7 +114,7 @@
   digest = "1:e32bdbdb7c377a07a9a46378290059822efdce5c8d96fe71940d87cb4f918855"
   name = "github.com/modern-go/reflect2"
   packages = ["."]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "4b7aa43c6742a2c18fdef89dd197aaae7dac7ccd"
   version = "1.0.1"
 
@@ -122,44 +122,44 @@
   digest = "1:cf31692c14422fa27c83a05292eb5cbe0fb2775972e8f1f8446a71549bd8980b"
   name = "github.com/pkg/errors"
   packages = ["."]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "ba968bfe8b2f7e042a574c888954fccecfa385b4"
   version = "v0.8.1"
 
 [[projects]]
-  digest = "1:03a89169777b38862145711ef2317a36e19e1cdf717ab622e196f6a851b71ad9"
+  digest = "1:22feba686659f63833c0494ab81561f4fc95111205547fc4a8e1770a8b125989"
   name = "github.com/rollbar/rollbar-go"
   packages = ["."]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "d450a931d7a085523b60f0f7c98487333a8ce5fa"
   version = "v1.0.2"
 
 [[projects]]
-  digest = "1:4887e9e89c80299aa520d718239809fdd2a47a9aa394909b169959bfbc424ddf"
+  digest = "1:77eb0fee08dd0cc2562a8b17e9fd8ef333c0cfd8ebb5f7bb784f769503f05406"
   name = "github.com/ugorji/go"
   packages = ["codec"]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "8fd0f8d918c8f0b52d0af210a812ba882cc31a1e"
   version = "v1.1.2"
 
 [[projects]]
-  digest = "1:3c1a69cdae3501bf75e76d0d86dc6f2b0a7421bc205c0cb7b96b19eed464a34d"
+  digest = "1:365b8ecb35a5faf5aa0ee8d798548fc9cd4200cb95d77a5b0b285ac881bae499"
   name = "go.uber.org/atomic"
   packages = ["."]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "1ea20fb1cbb1cc08cbd0d913a96dead89aa18289"
   version = "v1.3.2"
 
 [[projects]]
-  digest = "1:60bf2a5e347af463c42ed31a493d817f8a72f102543060ed992754e689805d1a"
+  digest = "1:8da5d356e645cc806b953f35966e9185e9f3817c6cee54f9b33ca602544ee434"
   name = "go.uber.org/multierr"
   packages = ["."]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "3c4937480c32f4c13a875a1829af76c98ca3d40a"
   version = "v1.1.0"
 
 [[projects]]
-  digest = "1:c52caf7bd44f92e54627a31b85baf06a68333a196b3d8d241480a774733dcf8b"
+  digest = "1:c57d4b95825e74f8eb3b0c851d04aac3626a602de613f8702c0de41de26856b6"
   name = "go.uber.org/zap"
   packages = [
     ".",
@@ -169,31 +169,31 @@
     "internal/exit",
     "zapcore",
   ]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "ff33455a0e382e8a81d14dd7c922020b6b5e7982"
   version = "v1.9.1"
 
 [[projects]]
   branch = "master"
-  digest = "1:969c44c96e9866e912a16e282a362cf045b64202107424983fe8abc3373d1eab"
+  digest = "1:5b2bf4948602d42d5fe80519d28729a50c8d234712e95535cb38c44bf1d1ad14"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "41f3e6584952bb034a481797859f6ab34b6803bd"
 
 [[projects]]
-  digest = "1:c25289f43ac4a68d88b02245742347c94f1e108c534dda442188015ff80669b3"
+  digest = "1:1469235a5a8e192cfe6a99c4804b883a02f0ff96a693cd1660515a3a3b94d5ac"
   name = "google.golang.org/appengine"
   packages = ["cloudsql"]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "e9657d882bb81064595ca3b56cbe2546bbabf7b1"
   version = "v1.4.0"
 
 [[projects]]
-  digest = "1:cbc72c4c4886a918d6ab4b95e347ffe259846260f99ebdd8a198c2331cf2b2e9"
+  digest = "1:02714116710abce990f3fa478f52c8e7029590ef13f35aab723beecdf829f136"
   name = "gopkg.in/go-playground/validator.v8"
   packages = ["."]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "5f1438d3fca68893a817e4a66806cea46a9e4ebf"
   version = "v8.18.2"
 
@@ -201,7 +201,7 @@
   digest = "1:4d2e5a73dc1500038e504a8d78b986630e3626dc027bc030ba5c75da257cdb96"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
-  pruneopts = "UT"
+  pruneopts = "T"
   revision = "51d6538a90f86fe93ac480b35f37b2be17fef232"
   version = "v2.2.2"
 

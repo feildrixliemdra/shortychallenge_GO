@@ -1,4 +1,15 @@
+required = [
+  "github.com/fatih/color",
+  "github.com/go-sql-driver/mysql",
+  "github.com/jinzhu/copier",
+  "github.com/joho/godotenv",
+  "github.com/pkg/errors",
+  "github.com/rollbar/rollbar-go",
+  "go.uber.org/zap"
+]
 
+
+  
 [[constraint]]
   name = "github.com/gin-gonic/gin"
   version = "1.3.0"
