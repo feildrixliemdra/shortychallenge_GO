@@ -33,39 +33,39 @@ Dengan adanya kebutuhan untuk memecah Arsitektur Ralali yang Monolitik menjadi m
  |- storage
     |- logs
 ```
-#### middleware
+##### middleware
 
 Digunakan untuk menyimpan middleware-middleware yang akan digunakan, contoh `cors_middleware` atau `oauth_middleware`.
 
-#### controllers
+##### controllers
 
 Controller bertugas untuk menghandle HTTP Request, routing dimasukkan per-controller dan digroup berdasarkan controller, controller terhubung dengan service.
 
-#### service
+##### service
 
 Service bertugas untuk menghandle business logic, service memungkinkan untuk memanggil banyak repository dan atau service lain.
 
-#### repositories
+##### repositories
 
 Repository bertugas untuk menghandle query-query ke database atau storage lainnya, jangan menambahkan logic-logic programming berat pada layer ini.
 
-#### models
+##### models
 
 Models bertugas untuk menampung model-model representasi database schema yang dapat digunakan untuk kepentingan migration atau enkapsulasi data.
 
-#### objects
+##### objects
 
 Objects bertugas sebagai transporter data antar layer, objects juga bertugas untuk melakukan enkapsulasi data dari HTTP request ataupun sebagai response dari sebuah request.
 
-#### helpers
+##### helpers
 
 Bertugas untuk menyimpan helpers atau libraries yang sering digunakan contohnya `error_helper` atau `redis_helper`.
 
-#### constants
+##### constants
 
 Digunakan untuk menyimpan constant-constant seperti `error_constants` atau `configuration_constants`.
 
-#### storage
+##### storage
 
 Storage bertugas untuk menyimpan file-file seperti log error atau temporary file storage.
 
@@ -103,6 +103,30 @@ golang_service  | [GIN-debug] POST   /v1/authentication/generate --> _/my_app/co
 golang_service  | 
 golang_service  | [GIN-debug] Listening and serving HTTP on 0.0.0.0:3000
 ```
+
+### Dependency Manager
+Project ini menggunakan dependency manager dari `Go Dep`, dokumentasinya dapat dilihat disini: https://golang.github.io/dep/.
+
+Pastikan anda tidak mengubah apapun didalam file `src/Gopkg.lock` karena file itu diupdate berdasarkan konfigurasi yang ada didalm `src/Gopkg.toml`, untuk menambahkan sebuah dependency baru, berikut adalah commandnya:
+
+``` bash
+docker exec rll_go_boilerplate_golang_service sh -c 'cd /go/src/github.com/ralali/rl-ms-boilerplate-go && dep ensure -add {{nama-package}}'
+```
+
+Berikut adalah contohnya:
+``` bash
+docker exec rll_go_boilerplate_golang_service sh -c 'cd /go/src/github.com/ralali/rl-ms-boilerplate-go && dep ensure -add github.com/360EntSecGroup-Skylar/excelize'
+```
+
+Jika command diatas menampilkan tampilan seperti dibawah ini:
+```bash
+Fetching sources...
+
+"github.com/360EntSecGroup-Skylar/excelize" is not imported by your project, and has been temporarily added to Gopkg.lock and vendor/.
+If you run "dep ensure" again before actually importing it, it will disappear from Gopkg.lock and vendor/.
+```
+
+Pesan tersebut berarti anda belum menggunakan package itu diproject kalian, hal ini sering kali terjadi karena architecture kita menggunakan sub package, untuk menangani masalah ini, kita harus menambahkan package tersebut pada kolom required didalam file `src/Gopkg.toml`.
 
 ### Unit Testing
 untuk menjalankan unit testing, developer dapat menjalankan command dibawah ini:
