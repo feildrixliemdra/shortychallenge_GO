@@ -6,6 +6,7 @@ mkdir vendor
 cp -rf /go/src/* vendor/
 
 mkdir -p /go/src/github.com/ralali/
+touch /go/src/github.com/.gitignore
 
 ln -s /my_app /go/src/github.com/ralali/rl-ms-boilerplate-go
 
