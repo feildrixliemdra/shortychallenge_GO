@@ -21,14 +21,26 @@ func init() {
 
 func main() {
 
-	if os.Getenv("APP_ENV") == "production" {
-		rollbar.SetToken(os.Getenv("ROLLBAR_TOKEN"))
-		rollbar.SetEnvironment(os.Getenv("APP_ENV"))
-		rollbar.WrapAndWait(startApp)
-	} else {
-		startApp()
+	cmdString := command()
+
+	if cmdString == "" {
+		cmdString = "serve"
 	}
 
+	if cmdString == "serve" && os.Getenv("APP_ENV") == "production" {
+		startAppWithRollbar()
+	} else if cmdString == "serve" && os.Getenv("APP_ENV") != "production" {
+		startApp()
+	} else if cmdString == "migrate" {
+		database.Migrate()
+	}
+
+}
+
+func startAppWithRollbar() {
+	rollbar.SetToken(os.Getenv("ROLLBAR_TOKEN"))
+	rollbar.SetEnvironment(os.Getenv("APP_ENV"))
+	rollbar.WrapAndWait(startApp)
 }
 
 func startApp() {
@@ -48,9 +60,16 @@ func startApp() {
 	serverString := fmt.Sprintf("%s:%s", serverHost, serverPort)
 	fmt.Println(serverString)
 
-	// run database migration
-	database.Migrate()
-
 	router.Run(serverString)
 
+}
+
+
+func command() string {
+	args := os.Args[1:]
+
+	if len(args) > 0 {
+		return args[0]
+	}
+	return ""
 }
