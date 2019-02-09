@@ -110,12 +110,12 @@ Project ini menggunakan dependency manager dari `Go Dep`, dokumentasinya dapat d
 Pastikan anda tidak mengubah apapun didalam file `src/Gopkg.lock` karena file itu diupdate berdasarkan konfigurasi yang ada didalm `src/Gopkg.toml`, untuk menambahkan sebuah dependency baru, berikut adalah commandnya:
 
 ``` bash
-docker exec rll_go_boilerplate_golang_service sh -c 'cd /go/src/github.com/ralali/rl-ms-boilerplate-go && dep ensure -add {{nama-package}}'
+docker exec rll_go_boilerplate_golang_service sh -c 'source dep_add.sh {{package-source}}'
 ```
 
 Berikut adalah contohnya:
 ``` bash
-docker exec rll_go_boilerplate_golang_service sh -c 'cd /go/src/github.com/ralali/rl-ms-boilerplate-go && dep ensure -add github.com/360EntSecGroup-Skylar/excelize'
+docker exec rll_go_boilerplate_golang_service sh -c 'source dep_add.sh github.com/360EntSecGroup-Skylar/excelize'
 ```
 
 Jika command diatas menampilkan tampilan seperti dibawah ini:
