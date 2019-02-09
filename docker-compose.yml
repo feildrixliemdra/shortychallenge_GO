@@ -1,10 +1,10 @@
 version: '3.3'
 services:
-  rll_go_boilerplate_golang_service:
+  rll_go_boilerplate_golang:
     build:
       context: ./config
       dockerfile: golang-service
-    container_name: rll_go_boilerplate_golang_service
+    container_name: rll_go_boilerplate_golang
     ports:
     - '3000:3000'
     volumes:
@@ -16,11 +16,11 @@ services:
         ipv4_address: 172.16.235.10
     working_dir: "/my_app"
     command: ["sh", "-c", "chmod +x build.sh && source build.sh"]
-  rll_go_boilerplate_mysql_service:
+  rll_go_boilerplate_mysql:
     build:
       context: ./config
       dockerfile: mysql-service
-    container_name: rll_go_boilerplate_mysql_service
+    container_name: rll_go_boilerplate_mysql
     environment:
       MYSQL_DATABASE: "rll_go_boilerplate_database"
       MYSQL_USER: "rll_go_boilerplate_username"

@@ -74,51 +74,71 @@ Storage bertugas untuk menyimpan file-file seperti log error atau temporary file
 
 ## How to Setup
 
-Clone repository ini diluar direktori `$GOPATH`, copy `.env.example` didalam directory `src` dan buat satu file dengan nama `.env`, sesuaikan konfigurasi environment anda pada file `.env`, by default `.env` sudah disetting untuk dapat konek ke docker mysql yang sudah disiapkan, jadi mending tidak usah mengubah apa apa disini.
-
-#### Setup Local
-- masuk kedalam directory repository
-- jalankan `docker-compose up --build`
-- tunggu sampai terminal menampilkan tampilan seperti dibawah ini:
-
-``` bash
-golang_service  | refresh: 2019/01/29 05:40:41 === Rebuild on: :start: ===
-golang_service  | refresh: 2019/01/29 05:40:41 === Running: go build -v -i -o /tmp/refresh-build  (PID: 27) ===
-golang_service  | refresh: 2019/01/29 05:40:43 === Building Completed (PID: 27) (Time: 1.697046352s) ===
-golang_service  | refresh: 2019/01/29 05:40:43 === Running: /tmp/refresh-build (PID: 61) ===
-golang_service  | [GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
-golang_service  |
-golang_service  | [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
-golang_service  | - using env:  export GIN_MODE=release
-golang_service  | - using code:  gin.SetMode(gin.ReleaseMode)
-golang_service  |
-golang_service  |
-golang_service  | !!! Info
-golang_service  | Successfully connected to database username:password@tcp(172.16.235.1:3309)/database?parseTime=1&loc=Asia%2FJakarta
-golang_service  |
-golang_service  | [GIN-debug] GET    /v1/users/:id             --> _/my_app/controllers.(*V1UserController).GetById-fm (5 handlers)
-golang_service  | [GIN-debug] POST   /v1/users/:id             --> _/my_app/controllers.(*V1UserController).UpdateById-fm (5 handlers)
-golang_service  | [GIN-debug] GET    /v1/authentication/profile --> _/my_app/controllers.(*V1AuthenticationController).GetProfile-fm (5 handlers)
-golang_service  | [GIN-debug] POST   /v1/authentication/generate --> _/my_app/controllers.(*V1AuthenticationController).Generate-fm (5 handlers)
-golang_service  | 
-golang_service  | [GIN-debug] Listening and serving HTTP on 0.0.0.0:3000
+1. Clone repository ini dengan menggunakan command:
+```bash
+git clone git@github.com:ralali/rl-ms-boilerplate-go.git
+```
+2. Masuk kedalam directory `rl-ms-boilerplate-go` dengan menggunakan command:
+```bash
+cd rl-ms-boilerplate-go
 ```
 
-### Dependency Manager
-Project ini menggunakan dependency manager dari `Go Dep`, dokumentasinya dapat dilihat disini: https://golang.github.io/dep/.
+3. Membuat file `src/.env` yang berisi konfigurasi environment, contoh dapat dilihat dari `src/.env.example`
 
-Pastikan anda tidak mengubah apapun didalam file `src/Gopkg.lock` karena file itu diupdate berdasarkan konfigurasi yang ada didalm `src/Gopkg.toml`, untuk menambahkan sebuah dependency baru, berikut adalah commandnya:
-
-``` bash
-docker exec rll_go_boilerplate_golang_service sh -c 'source dep_add.sh {{package-source}}'
+4. Menjalankan `docker-compose` dengan menggunakan command:
+```bash
+docker-compose up --build
 ```
 
-Berikut adalah contohnya:
+##### Notes
+Project ini menggunakan docker-compose yang melakukan build image:
+- [rll_go_boilerplate_golang] Golang 1.11.5-alpine3.9 
+- [rll_go_boilerplate_golang] Mysql 5.7
+
+Engineer dapat menggunakan database mysql pada local machine dengan konfigurasi sebagai berikut:
+```
+DB_HOST=172.16.231.1
+DB_PORT=3309
+DB_DATABASE=rll_go_boilerplate_database
+DB_USERNAME=rll_go_boilerplate_username
+DB_PASSWORD=rll_go_boilerplate_password
+```
+
+## Migration
+Untuk melakukan migrasi database, engineer harus menjalankan docker-compose terlebih dahulu lalu menjalankan command dibawah ini:
+```bash
+docker exec rll_go_boilerplate_golang sh -c 'go run main.go migrate'
+```
+Tunggu hingga command berhasil dijalankan maka database skema berhasil dimigrasi
+
+## Documentation
+Dokumentasi project ini menggunakan swagger, untuk mengenerate doc file dari swagger dapat menggunakan command dibawah ini:
 ``` bash
-docker exec rll_go_boilerplate_golang_service sh -c 'source dep_add.sh github.com/360EntSecGroup-Skylar/excelize'
+docker exec rll_go_boilerplate_golang sh -c 'swag init'
+```
+
+## Testing
+Untuk menjalankan unit test, engineer dapat menggunakan command dibawah ini:
+``` bash
+docker exec rll_go_boilerplate_golang sh -c 'go test ./... -v -cover'
+```
+
+## Dependency Manager
+Project ini menggunakan dependency manager `Go Dep`, untuk informasi lebih detail mengenai dependency manager ini dapat mengakses link berikut ini `https://golang.github.io/dep/`.
+
+Untuk menambahkan package baru, dapat menggunakan format command dibawah ini:
+``` bash
+docker exec rll_go_boilerplate_golang sh -c 'source dep_add.sh {{package-source}}'
+```
+
+Berikut adalah contoh untuk menambahkan package dari `github.com/360EntSecGroup-Skylar/excelize`:
+
+``` bash
+docker exec rll_go_boilerplate_golang sh -c 'source dep_add.sh github.com/360EntSecGroup-Skylar/excelize'
 ```
 
 Jika command diatas menampilkan tampilan seperti dibawah ini:
+
 ```bash
 Fetching sources...
 
@@ -126,12 +146,20 @@ Fetching sources...
 If you run "dep ensure" again before actually importing it, it will disappear from Gopkg.lock and vendor/.
 ```
 
-Pesan tersebut berarti anda belum menggunakan package itu diproject kalian, hal ini sering kali terjadi karena architecture kita menggunakan sub package, untuk menangani masalah ini, kita harus menambahkan package tersebut pada kolom required didalam file `src/Gopkg.toml`.
+Pesan tersebut berarti anda belum menggunakan package itu diproject anda, hal ini sering kali terjadi karena architecture kita menggunakan sub package, untuk menangani masalah ini, kita harus menambahkan package tersebut pada kolom required didalam file `src/Gopkg.toml`, seperti pada contoh dibawah ini:
 
-### Unit Testing
-untuk menjalankan unit testing, developer dapat menjalankan command dibawah ini:
+```bash
+required = [
+    ...
+    "github.com/360EntSecGroup-Skylar/excelize",
+    ...
+]
 ```
-docker exec -w /my_app rll_go_boilerplate_golang_service go test ./... -v -cover
+
+Setelah itu untuk membersihkan vendor directory setelah penambahan package baru engineer harus menjalankan perintah dibawah ini:
+
+``` bash
+docker exec rll_go_boilerplate_golang sh -c 'dep ensure -v'
 ```
 
 ### Code Versioning
