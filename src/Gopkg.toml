@@ -7,8 +7,6 @@ required = [
   "github.com/rollbar/rollbar-go",
   "go.uber.org/zap"
 ]
-
-
   
 [[constraint]]
   name = "github.com/gin-gonic/gin"
@@ -48,3 +46,7 @@ required = [
 [[constraint]]
   name = "go.uber.org/zap"
   version = "1.9.1"
+
+[[constraint]]
+  name = "github.com/360EntSecGroup-Skylar/excelize"
+  version = "1.4.1"

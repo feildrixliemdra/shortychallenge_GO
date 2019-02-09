@@ -13,7 +13,6 @@ cd /go/src/github.com/ralali/rl-ms-boilerplate-go
 dep ensure -v
 
 cd /my_app
-rm -rf /go/src/github.com/ralali
 
 cp -rf vendor/* /go/src
 rm -rf vendor
