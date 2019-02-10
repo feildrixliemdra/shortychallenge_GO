@@ -135,6 +135,13 @@ docker exec rll_go_boilerplate_golang sh -c 'go run main.go migrate'
 ```
 Tunggu hingga command berhasil dijalankan maka database skema berhasil dimigrasi
 
+### Seed
+Untuk melakukan seed database, engineer harus menjalankan docker-compose terlebih dahulu lalu menjalankan command dibawah ini:
+```bash
+docker exec rll_go_boilerplate_golang sh -c 'go run main.go seed'
+```
+Tunggu hingga command berhasil dijalankan maka database seed berhasil dijalankan
+
 ### Documentation
 Dokumentasi project ini menggunakan swagger, untuk mengenerate doc file dari swagger dapat menggunakan command dibawah ini:
 ``` bash
@@ -201,6 +208,12 @@ docker run rll_go_boilerplate_golang
 Untuk menjalankan migrasi dapat menggunakan command dibawah ini:
 ```bash
 docker run rll_go_boilerplate_golang sh -c 'go run main.go migrate'
+```
+
+### Seed 
+Untuk menjalankan seed dapat menggunakan command dibawah ini:
+```bash
+docker run rll_go_boilerplate_golang sh -c 'go run main.go seed'
 ```
 
 ### Testing
