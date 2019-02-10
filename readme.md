@@ -65,6 +65,13 @@ setelah melakukan definisi pada `repository`, kemudian dilakukan definisi pada l
 
 ## How to Setup Local
 
+Sebelum mulai melakukan setup pada local machine anda, pastikan anda sudah menginstall:
+- Git
+- Docker
+- Docker Compose
+
+Apabila semua software diatas sudah diinstall pada local machine anda, maka anda siap untuk melakukan setup project ini dengan mengikuti tahap dibawah ini:
+
 1. Clone repository ini dengan menggunakan command:
 ```bash
 git clone git@github.com:ralali/rl-ms-boilerplate-go.git
@@ -76,22 +83,45 @@ cd rl-ms-boilerplate-go
 
 3. Membuat file `src/.env` yang berisi konfigurasi environment, contoh dapat dilihat dari `src/.env.example`
 
-4. Menjalankan `docker-compose` dengan menggunakan command:
-```bash
-docker-compose up --build
-```
-
-Project ini menggunakan docker-compose yang melakukan build image:
-- [rll_go_boilerplate_golang] Golang 1.11.5-alpine3.9 
-- [rll_go_boilerplate_golang] Mysql 5.7
-
-Engineer dapat menggunakan database mysql pada local machine dengan konfigurasi sebagai berikut:
+Engineer dapat menggunakan database mysql pada local machine dengan konfigurasi sebagai berikut (value dari variable dibawah dapat dilihat di `docker-compose.yml`):
 ```
 DB_HOST=172.16.231.1
 DB_PORT=3309
 DB_DATABASE=rll_go_boilerplate_database
 DB_USERNAME=rll_go_boilerplate_username
 DB_PASSWORD=rll_go_boilerplate_password
+```
+
+4. Menjalankan `docker-compose` dengan menggunakan command:
+```bash
+docker-compose up --build
+```
+
+Command diatas akan melakukan build image:
+- [rll_go_boilerplate_golang] Golang 1.11.5-alpine3.9 
+- [rll_go_boilerplate_golang] Mysql 5.7
+
+Tunggu hingga command tersebut berhasil melakukan build image, untuk run pertama kali akan memakan waktu karena akan mendownload image dan package yang dibutuhkan, jika anda mendapatkan tampilan seperti dibawah ini berarti setup berhasil dilakukan dan anda siap mendevelop project anda:
+
+```bash
+rll_go_boilerplate_golang    | [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+rll_go_boilerplate_golang    |  - using env:    export GIN_MODE=release
+rll_go_boilerplate_golang    |  - using code:   gin.SetMode(gin.ReleaseMode)
+rll_go_boilerplate_golang    | 
+rll_go_boilerplate_golang    | Initialize database
+rll_go_boilerplate_golang    | 
+rll_go_boilerplate_golang    | !!! Info
+rll_go_boilerplate_golang    | Successfully connected to database rll_go_boilerplate_username:rll_go_boilerplate_password@tcp(172.16.235.1:3309)/rll_go_boilerplate_database?parseTime=1&loc=Asia%2FJakarta
+rll_go_boilerplate_golang    | 
+rll_go_boilerplate_golang    | Connection is created
+rll_go_boilerplate_golang    | [GIN-debug] GET    /v1/users/:id             --> _/my_app/controllers.(*V1UserController).GetById-fm (5 handlers)
+rll_go_boilerplate_golang    | [GIN-debug] POST   /v1/users/:id             --> _/my_app/controllers.(*V1UserController).UpdateById-fm (5 handlers)
+rll_go_boilerplate_golang    | [GIN-debug] POST   /v1/authentication/generate --> _/my_app/controllers.(*V1AuthenticationController).Generate-fm (4 handlers)
+rll_go_boilerplate_golang    | [GIN-debug] GET    /v1/authentication/profile --> _/my_app/controllers.(*V1AuthenticationController).GetProfile-fm (5 handlers)
+rll_go_boilerplate_golang    | Get connection database
+rll_go_boilerplate_golang    | [GIN-debug] POST   /v2/users/:id             --> _/my_app/controllers.(*V2UserController).UpdateById-fm (4 handlers)
+rll_go_boilerplate_golang    | 0.0.0.0:3000
+rll_go_boilerplate_golang    | [GIN-debug] Listening and serving HTTP on 0.0.0.0:3000
 ```
 
 ### Migration
