@@ -18,6 +18,17 @@
   revision = "de5bf2ad457846296e2031421a34e2568e304e35"
 
 [[projects]]
+  branch = "master"
+  digest = "1:95197dfe44157a59ca91bffb8faa59a14f220806a3ed394d35a39c72180f8e36"
+  name = "github.com/alecthomas/template"
+  packages = [
+    ".",
+    "parse",
+  ]
+  pruneopts = "T"
+  revision = "a0175ee3bccc567396460bf5acd36800cb10c49c"
+
+[[projects]]
   digest = "1:865079840386857c809b72ce300be7580cb50d3d3129ce11bf9aa6ca2bc1934a"
   name = "github.com/fatih/color"
   packages = ["."]
@@ -334,6 +345,7 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/alecthomas/template",
     "github.com/fatih/color",
     "github.com/gin-gonic/gin",
     "github.com/go-sql-driver/mysql",
@@ -344,6 +356,7 @@
     "github.com/pkg/errors",
     "github.com/rollbar/rollbar-go",
     "github.com/swaggo/gin-swagger",
+    "github.com/swaggo/swag",
     "go.uber.org/zap",
   ]
   solver-name = "gps-cdcl"
