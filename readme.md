@@ -124,6 +124,8 @@ rll_go_boilerplate_golang    | 0.0.0.0:3000
 rll_go_boilerplate_golang    | [GIN-debug] Listening and serving HTTP on 0.0.0.0:3000
 ```
 
+Project ini menggunakan library `refresh` sehingga anda tidak perlu mematikan dan menjalankan docker lagi untuk melakukan build, refresh akan mendeteksi perbuhahan file dan akan melakukan build dengan otomatis.
+
 ### Migration
 Untuk melakukan migrasi database, engineer harus menjalankan docker-compose terlebih dahulu lalu menjalankan command dibawah ini:
 ```bash
