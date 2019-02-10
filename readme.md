@@ -2,15 +2,16 @@
 
 # Ralali Golang Microservice Boilerplate
 
-## Pendahuluan
-Dengan adanya kebutuhan untuk memecah Arsitektur Ralali yang Monolitik menjadi microservice, maka hadirlan boilerplate ini yang dapat digunakan oleh internal tim ralali untuk menunjang pembangunan microservice menggunakan bahasa pemrograman Go, arsitektur pada mikroservice ini diadoptasi berdasarkan teori yang ada pada link-link berikut ini:
+## Preface
 
+This is a boilerplate project using Go language and very suitable for microservice purposes, the software architecture is designed based on theory in the following links:
+                                                                                                              
 - https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
 - http://www0.cs.ucl.ac.uk/staff/A.Finkelstein/crsenotes/1B1499REQTS.pdf
 - https://blog.alexellis.io/golang-writing-unit-tests/
 - http://doc.gorm.io
 
-### Panduan Best Practice
+### Best practice guide
 - https://talks.golang.org/2013/bestpractices.slide
 
 ### Main Open Source Library
@@ -33,15 +34,15 @@ Dengan adanya kebutuhan untuk memecah Arsitektur Ralali yang Monolitik menjadi m
  |- storage
     |- logs
 ```
-- *middleware:* Digunakan untuk menyimpan middleware-middleware yang akan digunakan, contoh `cors_middleware` atau `oauth_middleware`.
-- *controllers:* Controller bertugas untuk menghandle HTTP Request, routing dimasukkan per-controller dan digroup berdasarkan controller, controller terhubung dengan service.
-- *service:* Service bertugas untuk menghandle business logic, service memungkinkan untuk memanggil banyak repository dan atau service lain.
-- *repositories:* Repository bertugas untuk menghandle query-query ke database atau storage lainnya, jangan menambahkan logic-logic programming berat pada layer ini.
-- *models:* Models bertugas untuk menampung model-model representasi database schema yang dapat digunakan untuk kepentingan migration atau enkapsulasi data.
-- *objects:* Objects bertugas sebagai transporter data antar layer, objects juga bertugas untuk melakukan enkapsulasi data dari HTTP request ataupun sebagai response dari sebuah request.
-- *helpers:* Bertugas untuk menyimpan helpers atau libraries yang sering digunakan contohnya `error_helper` atau `redis_helper`.
-- *constants:* Digunakan untuk menyimpan constant-constant seperti `error_constants` atau `configuration_constants`.
-- *storage:* Storage bertugas untuk menyimpan file-file seperti log error atau temporary file storage.
+- **middleware:** Digunakan untuk menyimpan middleware-middleware yang akan digunakan, contoh `cors_middleware` atau `oauth_middleware`.
+- **controllers:** Controller bertugas untuk menghandle HTTP Request, routing dimasukkan per-controller dan digroup berdasarkan controller, controller terhubung dengan service.
+- **service:** Service bertugas untuk menghandle business logic, service memungkinkan untuk memanggil banyak repository dan atau service lain.
+- **repositories:** Repository bertugas untuk menghandle query-query ke database atau storage lainnya, jangan menambahkan logic-logic programming berat pada layer ini.
+- **models:** Models bertugas untuk menampung model-model representasi database schema yang dapat digunakan untuk kepentingan migration atau enkapsulasi data.
+- **objects:** Objects bertugas sebagai transporter data antar layer, objects juga bertugas untuk melakukan enkapsulasi data dari HTTP request ataupun sebagai response dari sebuah request.
+- **helpers:** Bertugas untuk menyimpan helpers atau libraries yang sering digunakan contohnya `error_helper` atau `redis_helper`.
+- **constants:** Digunakan untuk menyimpan constant-constant seperti `error_constants` atau `configuration_constants`.
+- **storage:** Storage bertugas untuk menyimpan file-file seperti log error atau temporary file storage.
 
 ## Code Versioning
 versioning level dilakukan pada layer 
