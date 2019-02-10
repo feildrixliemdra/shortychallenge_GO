@@ -20,7 +20,7 @@ This is a boilerplate project using Go language and very suitable for microservi
 - https://github.com/joho/godotenv
 
 ### Architecture Structure
-![architecture diagram](golang%20architecture%20diagram.png)
+![architecture diagram](https://s3-ap-southeast-1.amazonaws.com/ralali/assets/img/Libraries/golang+architecture+diagram.png)
 ```
 - rl-ms-boilerplate-go
  |- constants
