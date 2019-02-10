@@ -154,24 +154,24 @@ docker exec rll_go_boilerplate_golang sh -c 'dep ensure -v'
 ## How to Setup Docker Image
 Sudah disediakan Dockerfile pada root directory ini untuk melakukan build image untuk applikasi ini, untuk melakukan build dapat menggunakan command berikut ini:
 ```bash
-docker build -t rll_agent_api .
+docker build -t rll_go_boilerplate_golang .
 ```
 
 Setelah docker berhasil dibuild maka image dapat di jalankan dengan menggunakan command berikut ini:
 ```bash
-docker run rll_agent_api
+docker run rll_go_boilerplate_golang
 ```
 
 ### Migration 
 Untuk menjalankan migrasi dapat menggunakan command dibawah ini:
 ```bash
-docker run rll_agent_api_golang sh -c 'go run main.go migrate'
+docker run rll_go_boilerplate_golang_golang sh -c 'go run main.go migrate'
 ```
 
 ### Testing
 Untuk menjalankan testing dapat menggunakan command dibawah ini:
 ```bash
-docker exec rll_agent_api_golang sh -c 'go test ./... -v -cover'
+docker exec rll_go_boilerplate_golang_golang sh -c 'go test ./... -v -cover'
 ```
 
 ## TODO
