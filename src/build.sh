@@ -20,6 +20,3 @@ cp -rf vendor/* /go/src
 rm -rf vendor
 
 swag init
-
-refresh init -c config.yml
-refresh run -c config.yml

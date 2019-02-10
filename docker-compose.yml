@@ -15,7 +15,7 @@ services:
       rll_go_boilerplate_network:
         ipv4_address: 172.16.235.10
     working_dir: "/my_app"
-    command: ["sh", "-c", "chmod +x build.sh && source build.sh"]
+    command: ["sh", "-c", "source build.sh && refresh init -c config.yml && refresh run -c config.yml"]
   rll_go_boilerplate_mysql:
     build:
       context: ./config

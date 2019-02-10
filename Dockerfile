@@ -12,13 +12,13 @@ RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
 RUN mkdir -p /my_app
 
-ADD src /go/src/my_app
-WORKDIR /go/src/my_app
+ADD src /my_app
+WORKDIR /my_app
 
-RUN dep ensure -v
+RUN source build.sh
 
-RUN cp -rf vendor/* /go/src
-RUN rm -rf vendor
+RUN rm -rf /go/src/github.com/go-openapi/spec
+RUN go get -v -d
 
 EXPOSE 3000
-CMD ["sh", "-c", "swag init && go run main.go serve"]
+CMD ["sh", "-c", "go run main.go serve"]
