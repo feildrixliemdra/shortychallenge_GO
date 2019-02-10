@@ -34,6 +34,8 @@ func main() {
 		startAppWithRollbar()
 	} else if cmdString == "serve" && os.Getenv("APP_ENV") != "production" {
 		startApp()
+	} else if cmdString == "seed" {
+		database.Seed()
 	} else if cmdString == "migrate" {
 		database.Migrate()
 	}
