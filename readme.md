@@ -208,6 +208,3 @@ Untuk menjalankan testing dapat menggunakan command dibawah ini:
 ```bash
 docker exec rll_go_boilerplate_golang sh -c 'go test ./... -v -cover'
 ```
-
-## TODO
-- Endpoint documentation
