@@ -8,5 +8,6 @@ RUN apk update && \
     apk add curl
 
 RUN go get github.com/markbates/refresh
+RUN go get -u github.com/swaggo/swag/cmd/swag
 
 RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
