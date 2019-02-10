@@ -34,6 +34,16 @@ func V1UserControllerHandler(router *gin.Engine) {
 
 }
 
+// @Summary Get user data
+// @Description Get user data by user id
+// @Accept  json
+// @Produce  json
+// @Param   user_id     path    int     true        "User Id"
+// @Success 200 {string} string	"ok"
+// @Failure 400 {object} gin.H "Request parameter invalid"
+// @Failure 401 {object} gin.H "Invalid authorization"
+// @Failure 404 {object} gin.H "Resource not found"
+// @Router /api/users/{user_id} [get]
 func (handler *V1UserController) GetById(context *gin.Context) {
 
 	id, err := strconv.Atoi(context.Param("id"))
