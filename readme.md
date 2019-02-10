@@ -2,7 +2,7 @@
 
 # Ralali Golang Microservice Boilerplate
 
-### Pendahuluan
+## Pendahuluan
 Dengan adanya kebutuhan untuk memecah Arsitektur Ralali yang Monolitik menjadi microservice, maka hadirlan boilerplate ini yang dapat digunakan oleh internal tim ralali untuk menunjang pembangunan microservice menggunakan bahasa pemrograman Go, arsitektur pada mikroservice ini diadoptasi berdasarkan teori yang ada pada link-link berikut ini:
 
 - https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
@@ -33,44 +33,34 @@ Dengan adanya kebutuhan untuk memecah Arsitektur Ralali yang Monolitik menjadi m
  |- storage
     |- logs
 ```
-##### middleware
+- *middleware:* Digunakan untuk menyimpan middleware-middleware yang akan digunakan, contoh `cors_middleware` atau `oauth_middleware`.
+- *controllers:* Controller bertugas untuk menghandle HTTP Request, routing dimasukkan per-controller dan digroup berdasarkan controller, controller terhubung dengan service.
+- *service:* Service bertugas untuk menghandle business logic, service memungkinkan untuk memanggil banyak repository dan atau service lain.
+- *repositories:* Repository bertugas untuk menghandle query-query ke database atau storage lainnya, jangan menambahkan logic-logic programming berat pada layer ini.
+- *models:* Models bertugas untuk menampung model-model representasi database schema yang dapat digunakan untuk kepentingan migration atau enkapsulasi data.
+- *objects:* Objects bertugas sebagai transporter data antar layer, objects juga bertugas untuk melakukan enkapsulasi data dari HTTP request ataupun sebagai response dari sebuah request.
+- *helpers:* Bertugas untuk menyimpan helpers atau libraries yang sering digunakan contohnya `error_helper` atau `redis_helper`.
+- *constants:* Digunakan untuk menyimpan constant-constant seperti `error_constants` atau `configuration_constants`.
+- *storage:* Storage bertugas untuk menyimpan file-file seperti log error atau temporary file storage.
 
-Digunakan untuk menyimpan middleware-middleware yang akan digunakan, contoh `cors_middleware` atau `oauth_middleware`.
+## Code Versioning
+versioning level dilakukan pada layer 
+- `controllers` 
+- `objects` 
+- `repositories` 
+- `services`
 
-##### controllers
+setiap file pada layer-layer tersebut diberi prefix version dengan format snake case, seperti pada contoh yang ada `v1_user_controller.go` yang berarti user_controller versi 1, dan pada level struct diberi prefix versi dalam bentuk upper camel case seperti pada contoh diproject ini `V1UserController` yang berarti controller `UserController` versi 1.
 
-Controller bertugas untuk menghandle HTTP Request, routing dimasukkan per-controller dan digroup berdasarkan controller, controller terhubung dengan service.
+### Sample Case
+terdapat contoh kasus pada saat update data user parameter dan response yang diterima dan diberikan oleh `v1` dan `v2` berbeda, pertama-tama, developer harus melakukan definisi DTO nya terlebih dahulu pada layer `objects`:
 
-##### service
+- v1_user_object.go
+- v2_user_object.go
 
-Service bertugas untuk menghandle business logic, service memungkinkan untuk memanggil banyak repository dan atau service lain.
+pada kedua file tersebut terdapat object response dan object request, setelah melakaukan devinisi DTO, developer kemudiam melakukan definisi repository pada layer `repository` yang menggunakan DTO pada masing-masing versi.
 
-##### repositories
-
-Repository bertugas untuk menghandle query-query ke database atau storage lainnya, jangan menambahkan logic-logic programming berat pada layer ini.
-
-##### models
-
-Models bertugas untuk menampung model-model representasi database schema yang dapat digunakan untuk kepentingan migration atau enkapsulasi data.
-
-##### objects
-
-Objects bertugas sebagai transporter data antar layer, objects juga bertugas untuk melakukan enkapsulasi data dari HTTP request ataupun sebagai response dari sebuah request.
-
-##### helpers
-
-Bertugas untuk menyimpan helpers atau libraries yang sering digunakan contohnya `error_helper` atau `redis_helper`.
-
-##### constants
-
-Digunakan untuk menyimpan constant-constant seperti `error_constants` atau `configuration_constants`.
-
-##### storage
-
-Storage bertugas untuk menyimpan file-file seperti log error atau temporary file storage.
-
-## TODO
-- Endpoint documentation
+setelah melakukan definisi pada `repository`, kemudian dilakukan definisi pada layer `service` dan `controller`, perhatikan routing group pada masing masing controller harus sesuai dengan versi yang didefinisikan.    
 
 ## How to Setup
 
@@ -90,7 +80,6 @@ cd rl-ms-boilerplate-go
 docker-compose up --build
 ```
 
-##### Notes
 Project ini menggunakan docker-compose yang melakukan build image:
 - [rll_go_boilerplate_golang] Golang 1.11.5-alpine3.9 
 - [rll_go_boilerplate_golang] Mysql 5.7
@@ -104,26 +93,26 @@ DB_USERNAME=rll_go_boilerplate_username
 DB_PASSWORD=rll_go_boilerplate_password
 ```
 
-## Migration
+### Migration
 Untuk melakukan migrasi database, engineer harus menjalankan docker-compose terlebih dahulu lalu menjalankan command dibawah ini:
 ```bash
 docker exec rll_go_boilerplate_golang sh -c 'go run main.go migrate'
 ```
 Tunggu hingga command berhasil dijalankan maka database skema berhasil dimigrasi
 
-## Documentation
+### Documentation
 Dokumentasi project ini menggunakan swagger, untuk mengenerate doc file dari swagger dapat menggunakan command dibawah ini:
 ``` bash
 docker exec rll_go_boilerplate_golang sh -c 'swag init'
 ```
 
-## Testing
+### Testing
 Untuk menjalankan unit test, engineer dapat menggunakan command dibawah ini:
 ``` bash
 docker exec rll_go_boilerplate_golang sh -c 'go test ./... -v -cover'
 ```
 
-## Dependency Manager
+### Dependency Manager
 Project ini menggunakan dependency manager `Go Dep`, untuk informasi lebih detail mengenai dependency manager ini dapat mengakses link berikut ini `https://golang.github.io/dep/`.
 
 Untuk menambahkan package baru, dapat menggunakan format command dibawah ini:
@@ -162,21 +151,28 @@ Setelah itu untuk membersihkan vendor directory setelah penambahan package baru 
 docker exec rll_go_boilerplate_golang sh -c 'dep ensure -v'
 ```
 
-### Code Versioning
-versioning level dilakukan pada layer 
-- `controllers` 
-- `objects` 
-- `repositories` 
-- `services`
+### Codebuild 
+Sudah disediakan Dockerfile pada root directory ini untuk melakukan build image untuk applikasi ini, untuk melakukan build dapat menggunakan command berikut ini:
+```bash
+docker build -t rll_agent_api .
+```
 
-setiap file pada layer-layer tersebut diberi prefix version dengan format snake case, seperti pada contoh yang ada `v1_user_controller.go` yang berarti user_controller versi 1, dan pada level struct diberi prefix versi dalam bentuk upper camel case seperti pada contoh diproject ini `V1UserController` yang berarti controller `UserController` versi 1.
+Setelah docker berhasil dibuild maka image dapat di jalankan dengan menggunakan command berikut ini:
+```bash
+docker run rll_agent_api
+```
 
-##### Sample Case
-terdapat contoh kasus pada saat update data user parameter dan response yang diterima dan diberikan oleh `v1` dan `v2` berbeda, pertama-tama, developer harus melakukan definisi DTO nya terlebih dahulu pada layer `objects`:
+#### Migration 
+Untuk menjalankan migrasi dapat menggunakan command dibawah ini:
+```bash
+docker run rll_agent_api_golang sh -c 'go run main.go migrate'
+```
 
-- v1_user_object.go
-- v2_user_object.go
+#### Testing
+Untuk menjalankan testing dapat menggunakan command dibawah ini:
+```bash
+docker exec rll_agent_api_golang sh -c 'go test ./... -v -cover'
+```
 
-pada kedua file tersebut terdapat object response dan object request, setelah melakaukan devinisi DTO, developer kemudiam melakukan definisi repository pada layer `repository` yang menggunakan DTO pada masing-masing versi.
-
-setelah melakukan definisi pada `repository`, kemudian dilakukan definisi pada layer `service` dan `controller`, perhatikan routing group pada masing masing controller harus sesuai dengan versi yang didefinisikan.    
+## TODO
+- Endpoint documentation
