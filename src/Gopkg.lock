@@ -356,7 +356,6 @@
     "github.com/pkg/errors",
     "github.com/rollbar/rollbar-go",
     "github.com/swaggo/gin-swagger",
-    "github.com/swaggo/swag",
     "go.uber.org/zap",
   ]
   solver-name = "gps-cdcl"
