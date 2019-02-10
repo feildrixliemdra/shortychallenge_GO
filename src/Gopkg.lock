@@ -2,6 +2,22 @@
 
 
 [[projects]]
+  digest = "1:352fc094dbd1438593b64251de6788bffdf30f9925cf763c7f62e1fd27142b76"
+  name = "github.com/PuerkitoBio/purell"
+  packages = ["."]
+  pruneopts = "T"
+  revision = "0bcb03f4b4d0a9428594752bd2a3b9aa0a9d4bd4"
+  version = "v1.1.0"
+
+[[projects]]
+  branch = "master"
+  digest = "1:c739832d67eb1e9cc478a19cc1a1ccd78df0397bf8a32978b759152e205f644b"
+  name = "github.com/PuerkitoBio/urlesc"
+  packages = ["."]
+  pruneopts = "T"
+  revision = "de5bf2ad457846296e2031421a34e2568e304e35"
+
+[[projects]]
   digest = "1:865079840386857c809b72ce300be7580cb50d3d3129ce11bf9aa6ca2bc1934a"
   name = "github.com/fatih/color"
   packages = ["."]
@@ -29,6 +45,38 @@
   pruneopts = "T"
   revision = "b869fe1415e4b9eb52f247441830d502aece2d4d"
   version = "v1.3.0"
+
+[[projects]]
+  digest = "1:701ec53dfa0182bf25e5c09e664906f11d697e779b59461a2607dbd4dc75a4f9"
+  name = "github.com/go-openapi/jsonpointer"
+  packages = ["."]
+  pruneopts = "T"
+  revision = "ef5f0afec364d3b9396b7b77b43dbe26bf1f8004"
+  version = "v0.18.0"
+
+[[projects]]
+  digest = "1:3f17ebd557845adeb347c9e398394e96ebc18e0ec94cc04972be87851a4679e0"
+  name = "github.com/go-openapi/jsonreference"
+  packages = ["."]
+  pruneopts = "T"
+  revision = "8483a886a90412cd6858df4ea3483dce9c8e35a3"
+  version = "v0.18.0"
+
+[[projects]]
+  digest = "1:aab0bf9ea37838fc396fa23a503c51f12335e3f571fe78e0025d35e498bf7689"
+  name = "github.com/go-openapi/spec"
+  packages = ["."]
+  pruneopts = "T"
+  revision = "5b6cdde3200976e3ecceb2868706ee39b6aff3e4"
+  version = "v0.18.0"
+
+[[projects]]
+  digest = "1:1b0d6468099d6a5b331ce46f5a398ef368abc6220d79825baf03a672f9d4e816"
+  name = "github.com/go-openapi/swag"
+  packages = ["."]
+  pruneopts = "T"
+  revision = "1d29f06aebd59ccdf11ae04aa0334ded96e2d909"
+  version = "v0.18.0"
 
 [[projects]]
   digest = "1:92d9d8d25bbab74ef8a3c546c121e24542ac984ccdc4f99678e06042a45e71f8"
@@ -87,6 +135,18 @@
   version = "v1.1.5"
 
 [[projects]]
+  branch = "master"
+  digest = "1:4be65cb3a11626a0d89fc72b34f62a8768040512d45feb086184ac30fdfbef65"
+  name = "github.com/mailru/easyjson"
+  packages = [
+    "buffer",
+    "jlexer",
+    "jwriter",
+  ]
+  pruneopts = "T"
+  revision = "60711f1a8329503b04e1c88535f419d0bb440bff"
+
+[[projects]]
   digest = "1:b168836ecd85a2d138391dbc464d2442ea9400c29cc0636f2c6056b996692e29"
   name = "github.com/mattn/go-colorable"
   packages = ["."]
@@ -135,6 +195,22 @@
   version = "v1.0.2"
 
 [[projects]]
+  digest = "1:51130cc36d802c5499eb3108d5c21adf484c40e2eb70b435a1bcb6e840a6adc5"
+  name = "github.com/swaggo/gin-swagger"
+  packages = ["."]
+  pruneopts = "T"
+  revision = "8cf3fa9932e247205d1cf2be6fd13a9d09ceb9a4"
+  version = "v1.0.0"
+
+[[projects]]
+  digest = "1:ed0989053bb14935e53bbae3e0fea379f1dc46b7f1a0f0876fd3baa1668af2e3"
+  name = "github.com/swaggo/swag"
+  packages = ["."]
+  pruneopts = "T"
+  revision = "e8c6d12e2c12a510070257ad5f2cecd937cbe76a"
+  version = "v1.4.0"
+
+[[projects]]
   digest = "1:77eb0fee08dd0cc2562a8b17e9fd8ef333c0cfd8ebb5f7bb784f769503f05406"
   name = "github.com/ugorji/go"
   packages = ["codec"]
@@ -175,11 +251,60 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:a88bdbfd3d7f9750a3b3c6947f2d0f8f1fbbb0b65c38128cbc6548189eaf756b"
+  name = "golang.org/x/net"
+  packages = [
+    "idna",
+    "webdav",
+    "webdav/internal/xml",
+  ]
+  pruneopts = "T"
+  revision = "65e2d4e15006aab9813ff8769e768bbf4bb667a0"
+
+[[projects]]
+  branch = "master"
   digest = "1:5b2bf4948602d42d5fe80519d28729a50c8d234712e95535cb38c44bf1d1ad14"
   name = "golang.org/x/sys"
   packages = ["unix"]
   pruneopts = "T"
   revision = "41f3e6584952bb034a481797859f6ab34b6803bd"
+
+[[projects]]
+  digest = "1:6164911cb5e94e8d8d5131d646613ff82c14f5a8ce869de2f6d80d9889df8c5a"
+  name = "golang.org/x/text"
+  packages = [
+    "collate",
+    "collate/build",
+    "internal/colltab",
+    "internal/gen",
+    "internal/tag",
+    "internal/triegen",
+    "internal/ucd",
+    "language",
+    "secure/bidirule",
+    "transform",
+    "unicode/bidi",
+    "unicode/cldr",
+    "unicode/norm",
+    "unicode/rangetable",
+    "width",
+  ]
+  pruneopts = "T"
+  revision = "f21a4dfb5e38f5895301dc265a8def02365cc3d0"
+  version = "v0.3.0"
+
+[[projects]]
+  branch = "master"
+  digest = "1:141f6365aa534590c752f95907f951ba1f60acf9513d4ceb6ead61f3ec84e839"
+  name = "golang.org/x/tools"
+  packages = [
+    "go/ast/astutil",
+    "go/buildutil",
+    "go/internal/cgo",
+    "go/loader",
+  ]
+  pruneopts = "T"
+  revision = "3744606dbb67b99c60d3f11cb10bd3f9e6dad472"
 
 [[projects]]
   digest = "1:1469235a5a8e192cfe6a99c4804b883a02f0ff96a693cd1660515a3a3b94d5ac"
@@ -218,6 +343,7 @@
     "github.com/joho/godotenv",
     "github.com/pkg/errors",
     "github.com/rollbar/rollbar-go",
+    "github.com/swaggo/gin-swagger",
     "go.uber.org/zap",
   ]
   solver-name = "gps-cdcl"

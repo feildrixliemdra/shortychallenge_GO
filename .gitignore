@@ -7,3 +7,4 @@ storage
 src/refresh.yml
 src/config.yml
 src/my_app
+src/docs/swagger

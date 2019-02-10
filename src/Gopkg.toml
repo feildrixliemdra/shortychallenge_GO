@@ -7,7 +7,9 @@ required = [
   "github.com/rollbar/rollbar-go",
   "go.uber.org/zap",
   "github.com/jinzhu/gorm",
-  "github.com/jinzhu/inflection"
+  "github.com/jinzhu/inflection",
+  "github.com/swaggo/gin-swagger",
+  "github.com/alecthomas/template"
 ]
 
 [[constraint]]
@@ -48,3 +50,6 @@ required = [
 [[constraint]]
   name = "go.uber.org/zap"
   version = "1.9.1"
+[[constraint]]
+  name = "github.com/swaggo/gin-swagger"
+  version = "1.0.0"

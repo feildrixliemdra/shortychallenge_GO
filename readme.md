@@ -18,6 +18,7 @@ This is a boilerplate project using Go language and very suitable for microservi
 - https://github.com/gin-gonic/gin
 - https://github.com/jinzhu/gorm -> (https://github.com/go-sql-driver/mysql)
 - https://github.com/joho/godotenv
+- https://github.com/swaggo/swag
 
 ### Architecture Structure
 ![architecture diagram](https://s3-ap-southeast-1.amazonaws.com/ralali/assets/img/Libraries/golang+architecture+diagram.png)
