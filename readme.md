@@ -62,7 +62,7 @@ pada kedua file tersebut terdapat object response dan object request, setelah me
 
 setelah melakukan definisi pada `repository`, kemudian dilakukan definisi pada layer `service` dan `controller`, perhatikan routing group pada masing masing controller harus sesuai dengan versi yang didefinisikan.    
 
-## How to Setup
+## How to Setup Local
 
 1. Clone repository ini dengan menggunakan command:
 ```bash
@@ -151,7 +151,7 @@ Setelah itu untuk membersihkan vendor directory setelah penambahan package baru 
 docker exec rll_go_boilerplate_golang sh -c 'dep ensure -v'
 ```
 
-### Codebuild 
+## How to Setup Docker Image
 Sudah disediakan Dockerfile pada root directory ini untuk melakukan build image untuk applikasi ini, untuk melakukan build dapat menggunakan command berikut ini:
 ```bash
 docker build -t rll_agent_api .
@@ -162,13 +162,13 @@ Setelah docker berhasil dibuild maka image dapat di jalankan dengan menggunakan 
 docker run rll_agent_api
 ```
 
-#### Migration 
+### Migration 
 Untuk menjalankan migrasi dapat menggunakan command dibawah ini:
 ```bash
 docker run rll_agent_api_golang sh -c 'go run main.go migrate'
 ```
 
-#### Testing
+### Testing
 Untuk menjalankan testing dapat menggunakan command dibawah ini:
 ```bash
 docker exec rll_agent_api_golang sh -c 'go test ./... -v -cover'
