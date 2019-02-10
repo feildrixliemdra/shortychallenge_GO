@@ -165,13 +165,13 @@ docker run rll_go_boilerplate_golang
 ### Migration 
 Untuk menjalankan migrasi dapat menggunakan command dibawah ini:
 ```bash
-docker run rll_go_boilerplate_golang_golang sh -c 'go run main.go migrate'
+docker run rll_go_boilerplate_golang sh -c 'go run main.go migrate'
 ```
 
 ### Testing
 Untuk menjalankan testing dapat menggunakan command dibawah ini:
 ```bash
-docker exec rll_go_boilerplate_golang_golang sh -c 'go test ./... -v -cover'
+docker exec rll_go_boilerplate_golang sh -c 'go test ./... -v -cover'
 ```
 
 ## TODO
