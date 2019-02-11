@@ -3,7 +3,7 @@
 rm -rf .vendor-new
 rm -rf /go/src/github.com/ralali
 
-mkdir vendor
+mkdir -p vendor
 cp -rf /go/src/* vendor/
 
 mkdir -p /go/src/github.com/ralali/
