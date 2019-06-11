@@ -3,7 +3,7 @@ package controllers
 import (
 	"../constants"
 	"../helpers"
-	"../middleware"
+	// "../middleware"
 	"../objects"
 	"../services"
 	"github.com/gin-gonic/gin"
@@ -23,14 +23,14 @@ func V1UserControllerHandler(router *gin.Engine) {
 		errorHelper: helpers.ErrorHelperHandler(),
 	}
 
-	defaultMiddleware := middleware.DefaultMiddleware{}
+	// defaultMiddleware := middleware.DefaultMiddleware{}
 
 	group := router.Group("v1/users")
-	group.Use(defaultMiddleware.AuthenticationMiddleware())
-	{
+	// group.Use(defaultMiddleware.AuthenticationMiddleware())
+	// {
 		group.GET(":id", handler.GetById)
 		group.POST(":id", handler.UpdateById)
-	}
+	// }
 
 }
 
@@ -42,7 +42,6 @@ func V1UserControllerHandler(router *gin.Engine) {
 // @Success	200	{object} 	objects.V1UserObjectResponse
 // @Router /v1/users/{user_id} [get]
 func (handler *V1UserController) GetById(context *gin.Context) {
-
 	id, err := strconv.Atoi(context.Param("id"))
 	if nil != err {
 		handler.errorHelper.HTTPResponseError(context, err, constants.RequestParameterInvalid)

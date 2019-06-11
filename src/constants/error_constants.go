@@ -12,6 +12,7 @@ const (
 	ObjectNotInitializedProperly = 1001
 	InternalServerError          = 1002
 	ResourceNotFound             = 1003
+	PageNotFound				 = 404
 )
 
 var errorConstantMapping = map[int]ErrorConstant{
@@ -34,6 +35,10 @@ var errorConstantMapping = map[int]ErrorConstant{
 	ResourceNotFound: {
 		HttpCode: http.StatusInternalServerError,
 		Message:  "Resource not found",
+	},
+	PageNotFound: {
+		HttpCode: http.StatusNotFound,
+		Message:  "The shortcode cannot be found in the system",
 	},
 
 }

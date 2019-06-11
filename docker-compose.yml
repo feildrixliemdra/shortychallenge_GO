@@ -25,7 +25,7 @@ services:
       MYSQL_DATABASE: "rll_go_boilerplate_database"
       MYSQL_USER: "rll_go_boilerplate_username"
       MYSQL_PASSWORD: "rll_go_boilerplate_password"
-      MYSQL_ROOT_PASSWORD: "rll_go_boilerplate_password"
+      MYSQL_ROOT_PASSWORD: "123"
     ports:
     - '3309:3306'
     volumes:

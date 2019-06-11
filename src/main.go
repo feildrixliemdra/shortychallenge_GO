@@ -58,7 +58,7 @@ func startApp() {
 	controllers.V1UserControllerHandler(router)
 	controllers.V1AuthenticationControllerHandler(router)
 	controllers.V2UserControllerHandler(router)
-
+	controllers.V1UrlControllerHandler(router)
 	// start documentations here
 	docs.SwaggerInfo.Title = "Golang Boilerplate"
 	docs.SwaggerInfo.Description = "Golang boilerplate endpoint documentations"
