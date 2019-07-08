@@ -12,7 +12,8 @@ const (
 	ObjectNotInitializedProperly = 1001
 	InternalServerError          = 1002
 	ResourceNotFound             = 1003
-	PageNotFound				 = 404
+	PageNotFound                 = 404
+	StatusUnprocessableEntity    = 422
 )
 
 var errorConstantMapping = map[int]ErrorConstant{
@@ -40,7 +41,10 @@ var errorConstantMapping = map[int]ErrorConstant{
 		HttpCode: http.StatusNotFound,
 		Message:  "The shortcode cannot be found in the system",
 	},
-
+	StatusUnprocessableEntity: {
+		HttpCode: http.StatusUnprocessableEntity,
+		Message:  "Unprocessable Entity",
+	},
 }
 
 func GetErrorConstant(code int) ErrorConstant {
